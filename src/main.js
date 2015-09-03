@@ -1,29 +1,20 @@
 import {Component, View, bootstrap} from 'angular2/angular2'
 
-@Component({
-  selector: 'message'
-})
-@View({
-  template: `<h1>{{ message }}</h1>`
-})
-class Message {
-  constructor(){
-    this.message = 'Hello World'
-  }
-}
 
 @Component({
-  selector: 'helloworld'
+  selector: 'gravatar-profile'
 })
 @View({
-  template: `<message></message>`
-, directives: [Message]
+  template: `
+    <img src="https://placehold.it/350x150" />
+    <input #email type="email"/>
+    `
 })
-class HelloWorld {
+class GravatarProfile {
 
 }
 
 
 
 
-bootstrap(HelloWorld)
+bootstrap(GravatarProfile)
