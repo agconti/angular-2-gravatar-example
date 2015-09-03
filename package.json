@@ -1,0 +1,38 @@
+{
+  "name": "angular-2-gravatar-example",
+  "version": "0.1.0",
+  "description": "An angular 2 hello world example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agconti/angular-2-gravatar-example.git"
+  },
+  "keywords": [
+    "Angular",
+    "2",
+    "gravatar",
+    "profile"
+  ],
+  "author": "agconti < Andrew Conti >",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agconti/angular-2-gravatar-example/issues"
+  },
+  "homepage": "https://github.com/agconti/angular-2-gravatar-example#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.5.2"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.36",
+    "rx": "^3.1.2",
+    "systemjs": "^0.18.17"
+  }
+}
