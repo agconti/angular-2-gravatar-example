@@ -1,0 +1,41 @@
+.gravatar-profile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .gravatar-profile__email {
+    font-size: 1.25em;
+    margin: 1em;
+    padding: 0.5em;
+    border: none;
+    border-bottom: 2px solid #1160a9;
+    outline: none;
+    width: 12em;
+    text-align: center; }
+  .gravatar-profile__button {
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    background-color: white;
+    color: #1160a9;
+    border: 1px solid #1160a9;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    outline: none; }
+    .gravatar-profile__button:hover {
+      color: white;
+      background-color: #1160a9; }
+    .gravatar-profile__button:active {
+      background-color: #167ad7; }

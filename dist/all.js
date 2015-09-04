@@ -18,7 +18,7 @@ System.register(['angular2/angular2', 'md5'], function (_export) {
     execute: function () {
       GravatarProfile = (function () {
         function GravatarProfile() {
-          var size = arguments.length <= 0 || arguments[0] === undefined ? 200 : arguments[0];
+          var size = arguments.length <= 0 || arguments[0] === undefined ? 300 : arguments[0];
 
           _classCallCheck(this, _GravatarProfile);
 
@@ -57,7 +57,7 @@ System.register(['angular2/angular2', 'md5'], function (_export) {
 
         var _GravatarProfile = GravatarProfile;
         GravatarProfile = View({
-          template: '\n    <img [src]=imageSrc />\n    <input #email\n           type="email"\n           (keyup)="doneTyping($event)"\n           placeholder="Enter your gravatar email"/>\n    <button (click)="getProfile(email.value)">Get profile for {{email.value}}</button>\n    '
+          template: '\n    <article class="gravatar-profile">\n      <img [src]=imageSrc class="gravatar-profile__image"/>\n      <input #email\n             type="email"\n             (keyup)="doneTyping($event)"\n             placeholder="Enter your gravatar email"\n             class="gravatar-profile__email"/>\n      <button (click)="getProfile(email.value)" class="gravatar-profile__button">\n        Get profile for {{email.value}}\n      </button>\n    </article>\n    '
         })(GravatarProfile) || GravatarProfile;
         GravatarProfile = Component({
           selector: 'gravatar-profile'

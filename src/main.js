@@ -8,16 +8,21 @@ import md5 from 'md5'
 @View({
   template:
     `
-    <img [src]=imageSrc />
-    <input #email
-           type="email"
-           (keyup)="doneTyping($event)"
-           placeholder="Enter your gravatar email"/>
-    <button (click)="getProfile(email.value)">Get profile for {{email.value}}</button>
+    <article class="gravatar-profile">
+      <img [src]=imageSrc class="gravatar-profile__image"/>
+      <input #email
+             type="email"
+             (keyup)="doneTyping($event)"
+             placeholder="Enter your gravatar email"
+             class="gravatar-profile__email"/>
+      <button (click)="getProfile(email.value)" class="gravatar-profile__button">
+        Get profile for {{email.value}}
+      </button>
+    </article>
     `
 })
 class GravatarProfile {
-  constructor(size=200) {
+  constructor(size=300) {
     this.gravatarHost = 'http://www.gravatar.com/avatar'
     this.gravatarId = 'd41d8cd98f00b204e9800998ecf8427e'
     this.imageWidth = size
