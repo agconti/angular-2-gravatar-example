@@ -1,31 +1,48 @@
 import {Component, View, bootstrap} from 'angular2/angular2'
+import md5 from 'md5'
 
 
 @Component({
   selector: 'gravatar-profile'
 })
 @View({
-  template: `
-    <img src="{{imageSrc}}"/>
-    <input #email type="email" (keyup)="doneTyping($event)"/>
+  template:
+    `
+    <img [src]=imageSrc />
+    <input #email
+           type="email"
+           (keyup)="doneTyping($event)"
+           placeholder="Enter your gravatar email"/>
     <button (click)="getProfile(email.value)">Get profile for {{email.value}}</button>
     `
 })
 class GravatarProfile {
-  constructor() {
-    this.imageSrc = "https://placehold.it/350x150"
+  constructor(size=200) {
+    this.gravatarHost = 'http://www.gravatar.com/avatar'
+    this.gravatarId = 'd41d8cd98f00b204e9800998ecf8427e'
+    this.imageWidth = size
+    this.getImageSrc()
   }
 
   doneTyping($event) {
+    // 13 = enter key
     if($event.which === 13) {
       this.getProfile($event.target.value);
       $event.target.value = null;
     }
   }
 
-  getProfile(val) {
-    console.log(val)
-    this.imageSrc = 'https://media3.giphy.com/media/Y8SqjWuohk8Rq/200_s.gif'
+  getId(email){
+    this.gravatarId = md5(email)
+  }
+
+  getImageSrc(){
+    this.imageSrc = `${this.gravatarHost}/${this.gravatarId}?s=${this.imageWidth}`
+  }
+
+  getProfile(email) {
+    this.getId(email)
+    this.getImageSrc()
   }
 }
 
