@@ -35,8 +35,7 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.36",
-    "blueimp-md5": "^1.1.1",
-    "md5": "^2.0.0",
+    "express": "^4.13.3",
     "rx": "^3.1.2",
     "systemjs": "^0.18.17"
   },
