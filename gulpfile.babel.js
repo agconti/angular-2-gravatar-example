@@ -14,17 +14,18 @@ import minifyCss from 'gulp-minify-css'
 const baseDir = './'
 const srcDir = `${baseDir}src`
 const distDir = 'dist'
+const publicDir = `${baseDir + distDir}/public`
 const optional = ["es7.decorators"]
 const modules = 'system'
 
-// intialize browserSync
+// initialize browserSync
 browserSync.create()
 
 
 gulp.task('build:server', () => {
-    return gulp.src('./index.js')
+    return gulp.src(`${ srcDir }/index.js`)
         .pipe(babel({modules: 'common'}))
-        .pipe(gulp.dest(distDir))
+        .pipe(gulp.dest(__dirname))
 })
 
 gulp.task('build:js', () => {
@@ -33,20 +34,16 @@ gulp.task('build:js', () => {
         .pipe(babel({optional, modules}))
         .pipe(concat('all.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(distDir))
+        .pipe(gulp.dest(publicDir))
 })
-
-gulp.task('watch:js', ['build:js'], browserSync.reload)
-
 
 gulp.task('build:sass', () => {
-  return gulp.src(`${ srcDir }/**/*.scss`)
+  return gulp.src([`${ srcDir }/**/*.scss`, `!${ srcDir }/index.js`])
     .pipe(autoprefixer('last 2 versions'))
     .pipe(sass())
-    .pipe(gulp.dest(distDir))
+    .pipe(gulp.dest(publicDir))
     .pipe(browserSync.stream())
 })
-
 
 gulp.task('serve', () => {
     browserSync.init({ server: { baseDir }})
@@ -55,5 +52,6 @@ gulp.task('serve', () => {
     gulp.watch('./**/*.html', browserSync.reload)
 })
 
+gulp.task('watch:js', ['build:js'], browserSync.reload)
 gulp.task('default', ['build:js', 'build:sass', 'serve'])
 gulp.task('build', ['build:js', 'build:sass', 'build:server'])

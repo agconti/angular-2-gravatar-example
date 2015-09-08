@@ -29,5 +29,6 @@ node_modules
 #jspm
 jspm_packages
 
-# build
+# Built files
 dist
+/index.js
