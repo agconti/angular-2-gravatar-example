@@ -33,7 +33,6 @@ class GravatarProfile {
     // 13 = enter key
     if($event.which === 13) {
       this.getProfile($event.target.value);
-      $event.target.value = null;
     }
   }
 
