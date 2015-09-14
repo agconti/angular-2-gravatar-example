@@ -30,8 +30,8 @@ class GravatarProfile {
   }
 
   doneTyping($event) {
-    // 13 = enter key
-    if($event.which === 13) {
+    const enterKey = 13
+    if($event.which === enterKey) {
       this.getProfile($event.target.value);
     }
   }
