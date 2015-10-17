@@ -17,9 +17,6 @@ const publicDir = `${baseDir}/public`
 const optional = ["es7.decorators"]
 const modules = 'system'
 
-// initialize browserSync
-browserSync.create()
-
 
 gulp.task('build:js', () => {
     return gulp.src(`${ srcDir }/**/*.js`)
@@ -39,6 +36,7 @@ gulp.task('build:sass', () => {
 })
 
 gulp.task('serve', () => {
+    browserSync.create()
     browserSync.init({ server: { baseDir }})
     gulp.watch(`${ srcDir }/**/*.js`, ['watch:js'])
     gulp.watch(`${ srcDir }/**/*.scss`, ['build:sass'])
